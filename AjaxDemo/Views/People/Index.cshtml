@@ -1,0 +1,35 @@
+﻿
+<div class="row jumbotron">
+    <div class="col-md-3">
+        <input type="text" id="first-name" placeholder="First Name" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <input type="text" id="last-name" placeholder="Last Name" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <input type="text" id="age" placeholder="Age" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <button class="btn btn-primary btn-block" id="add-person">Add Person</button>
+    </div>
+</div>
+
+<div class="row">
+    <table id="people-table" class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="/js/people.js"></script>
+}
