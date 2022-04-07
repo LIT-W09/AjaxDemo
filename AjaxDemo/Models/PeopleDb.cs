@@ -58,5 +58,28 @@ namespace AjaxDemo.Models
             conn.Open();
             person.Id = (int)(decimal)cmd.ExecuteScalar();
         }
+
+        public void Update(Person person)
+        {
+            using var conn = new SqlConnection(_connectionString);
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE People SET FirstName = @f, LastName = @l, Age = @a WHERE Id = @id";
+            cmd.Parameters.AddWithValue("@f", person.FirstName);
+            cmd.Parameters.AddWithValue("@l", person.LastName);
+            cmd.Parameters.AddWithValue("@a", person.Age);
+            cmd.Parameters.AddWithValue("@id", person.Id);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
+
+        public void Delete(int id)
+        {
+            using var conn = new SqlConnection(_connectionString);
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM People WHERE Id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
     }
 }

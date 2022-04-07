@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AjaxDemo.Models;
+using System.Threading;
 
 namespace AjaxDemo.Controllers
 {
@@ -30,6 +31,20 @@ namespace AjaxDemo.Controllers
             var repo = new PeopleDb(_connectionString);
             repo.AddPerson(person);
             return Json(person);
+        }
+
+        [HttpPost]
+        public void Update(Person person)
+        {
+            var repo = new PeopleDb(_connectionString);
+            repo.Update(person);
+        }
+
+        [HttpPost]
+        public void Delete(int id)
+        {
+            var repo = new PeopleDb(_connectionString);
+            repo.Delete(id);
         }
     }
 }
